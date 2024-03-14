@@ -1,11 +1,12 @@
 import { fileURLToPath, URL } from 'node:url'
 
-import { defineConfig } from 'vite'
 import legacy from '@vitejs/plugin-legacy'
 import vue2 from '@vitejs/plugin-vue2'
+import { defineConfig } from 'vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: "CW3-single-file-component/",
   plugins: [
     vue2(),
     legacy({

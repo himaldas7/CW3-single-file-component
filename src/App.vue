@@ -24,7 +24,7 @@
 
 
 <script>
-import ProductList from "./components/ProductList";
+import ProductList from "./components/ProductList.vue";
 export default {
     name: 'app',
     data() {
@@ -36,7 +36,7 @@ export default {
 },
 component: { ProductList, Checkout},
 methods: {
-                showCheckout: () {
+                showCheckout () {
                   if (this.currentView === ProductList) {
                     this.currentView = Checkout;
                   } else {

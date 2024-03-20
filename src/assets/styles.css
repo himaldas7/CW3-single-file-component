@@ -1,0 +1,169 @@
+/* Reset default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Set default font family and colors */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Header Styles */
+header {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 24px;
+    margin: 0;
+}
+
+/* Search bar styles */
+.search-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center horizontally */
+    margin-bottom: 10px; /* Add some spacing below the search bar */
+}
+
+.search-bar input[type="text"] {
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+    width: 200px;
+}
+
+.search-bar button {
+    padding: 8px 16px;
+    border-radius: 4px;
+    border: none;
+    background-color: #28a745;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.search-bar button:hover {
+    background-color: #218838;
+}
+
+/* Cart button styles */
+button {
+    padding: 8px 16px;
+    border-radius: 4px;
+    border: none;
+    background-color: #28a745;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Main Container Styles */
+.container {
+    max-width: 800px;
+    margin: 0 auto; /* Center the container horizontally */
+}
+
+/* Lessons Container Styles */
+.lessons-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center items horizontally */
+}
+
+/* Lesson Card Styles */
+.lesson-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin: 10px;
+    padding: 15px;
+    width: 200px;
+    text-align: center;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.lesson-card:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.lesson-card h1 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.lesson-card p {
+    margin-bottom: 8px;
+}
+
+.lesson-card img {
+    border-radius: 50%;
+    width: 150px; /* Adjust the width as needed */
+    height: 150px; /* Adjust the height as needed */
+    object-fit: cover; /* Maintain aspect ratio while covering the dimensions */
+}
+
+/* Checkout Container Styles */
+.checkout-container {
+    margin-top: 20px; /* Add some space between the lessons and checkout sections */
+    padding: 20px;
+    background-color: #fff; /* Set background color */
+    border-radius: 8px; /* Add rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+}
+
+/* Checkout Container Header Styles */
+.checkout-container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333; /* Set font color */
+}
+
+/* Form Styles */
+.checkout-container form {
+    margin-bottom: 20px;
+}
+
+/* Input Field Styles */
+.checkout-container input[type="text"],
+.checkout-container input[type="tel"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s ease-in-out;
+}
+
+/* Input Field Focus Styles */
+.checkout-container input[type="text"]:focus,
+.checkout-container input[type="tel"]:focus {
+    border-color: #007bff;
+}
+
+/* Button Styles */
+.checkout-container button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* Button Hover Styles */
+.checkout-container button:hover {
+    background-color: #0056b3;
+}

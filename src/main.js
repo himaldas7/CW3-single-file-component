@@ -13,7 +13,7 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 /* import specific icons */
-import { faShoppingCart, faTextHeight } from '@fortawesome/freesolid-svg-icons'
+import { faShoppingCart, faTextHeight } from '@fortawesome/free-solid-svg-icons'
 
 /* import specific icons */
 import { faUniregistry } from '@fortawesome/free-brands-svg-icons'

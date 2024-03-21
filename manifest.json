@@ -1,0 +1,17 @@
+{
+    "manifest_version": 3,
+    "name": "My lessons PWA",
+    "short_name": "Lessons",
+    "description": "My online lessons website",
+    "icons": [
+        {
+            "src": "images/icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "version": "1122.0.6261.129",
+    "start_url": "index.html",
+    "display": "fullscreen",
+    "background_color": "#26bcad"
+}

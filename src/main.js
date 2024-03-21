@@ -1,9 +1,11 @@
 import Vue from 'vue'
 import App from './App.vue'
 
-import './assets/main.css'
-import './assets/images'
+import './assets/images/bangla.png'
+import './assets/images/english.png'
 
+
+import './assets/main.css'
 import './assets/styles.css'
 
 /* ---------- START: Font Awesome ----------*/
@@ -15,6 +17,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 /* import specific icons */
 import { faShoppingCart, faTextHeight } from '@fortawesome/free-solid-svg-icons'
+
 
 /* import specific icons */
 import { faUniregistry } from '@fortawesome/free-brands-svg-icons'

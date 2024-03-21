@@ -1,13 +1,243 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
-    <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lessons Webstore App</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+    <title>Vue.js Lesson Website</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+    <link rel="manifest" href="/manifest.json">
+    
+</head>
+
+<body>
+    <div id="app">
+        <header>
+            <h1>{{ sitename }}</h1>
+            <div class="search-bar">
+                <input type="text" v-model="searchTerm" placeholder="Search lessons" />
+                <button v-on:click="performSearch">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            <button v-on:click="showCheckout">
+                {{ itemsInTheCart }}
+                <i class="fas fa-cart-shopping"></i>
+                Checkout
+            </button>
+        </header>
+
+        <div class="container">
+            <div v-if="showlessons" class="lessons-container">
+                <div class="lesson-card" v-for="lesson in filteredLessons" :key="lesson.id">
+                    <h1>{{ lesson.Subject }}</h1>
+                    <img :src="lesson.image" alt="Lesson Image" />
+                    <p>{{ lesson.Location }}</p>
+                    <p><strong>Price: {{ lesson.price }}</strong></p>
+                    <p v-if="itemsLeft(lesson) === 0">All out!</p>
+                    <p v-else-if="itemsLeft(lesson) < 5">
+                        Only {{ itemsLeft(lesson) }} left!
+                    </p>
+                    <p v-else>Buy Now!</p>
+                    <div class="rating">
+                        <span v-for="n in lesson.rating" class="star">★</span>
+                        <span v-for="n in 5 - lesson.rating" class="star">☆</span>
+                    </div>
+                    <button v-if="canAddToTheCart(lesson)" v-on:click="addItemToTheCart(lesson)">
+                        Add to Cart
+                    </button>
+                    <button v-else disabled>Add to Cart</button>
+                </div>
+            </div>
+
+            <div v-else class="checkout-container">
+                <h2>Welcome to the checkout page</h2>
+                <form @submit.prevent="submitCheckoutForm">
+                    <p>
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" v-model.trim="order.name">
+                    </p>
+                    <p>
+                        <label for="surname">Surname:</label>
+                        <input type="text" id="surname" v-model.trim="order.surname">
+                    </p>
+                    <p>
+                        <label for="number">Phone Number:</label>
+                        <input type="tel" id="number" v-model.number="order.number">
+                    </p>
+                    <p>
+                        <label for="address">Address:</label>
+                        <input type="text" id="address" v-model="order.address">
+                    </p>
+                    <h3>All The Lessons Brought:-</h3>
+                    <div v-for="itemId in cart" :key="itemId">
+                        <p>
+                            <strong>Lesson:</strong> {{ getLessonById(itemId).Subject }}
+                            <button v-on:click.prevent="removeItemFromOrder(itemId)">Remove from Order</button>
+                        </p>
+                    </div>
+                    <h2>Order Information</h2>
+                    <p><strong>Name:</strong> {{ order.name }}</p>
+                    <p><strong>Surname:</strong> {{ order.surname }}</p>
+                    <p><strong>Phone Number:</strong> {{ order.number }}</p>
+                    <p><strong>Address:</strong> {{ order.address }}</p>
+                    <button type="submit">Place Order</button>
+                    </div>
+                   
+                </form>
+            </div>
+            
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/vue@2.7.8/dist/vue.js"></script>
+    <script src="lessons.js"></script>
+    <script>
+          // Service Worker registration
+          if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.register('/service-worker.js').then(function (registration) {
+                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                }, function (err) {
+                    console.error('ServiceWorker registration failed: ', err);
+                });
+            });
+        }
+
+
+        // this is the old part
+        let webstore = new Vue({
+            el: "#app", //<Don't forget this comma
+            data: {
+                //the 'data' option
+                //the key 'sitename' matches the value of 'v-text' earlier
+                sitename: "Vue.js Lesson website",
+                showlessons: true,
+
+                // The first 'lessons' is a Vue property
+                // The second lessons is the array from the 'lessons.js’
+                lessons: lessons,
+
+                cart: [],
+                order: {
+                    name: "",
+                    surname: "",
+                    number: "",
+                    address: "",
+                    state: "",
+                    Zip: "",
+                    gift: "Send as a gift",
+                    method: "Home",
+                    sendGift: "Send as a gift",
+                    donotSendGift: "Do not send as a gift",
+                },
+                states: {
+                    AL: "Alabama",
+                    AR: "Arizona",
+                    CA: " California",
+                    NV: "Nevada",
+                },
+                searchTerm: "",
+            },
+
+
+            methods: {
+                showCheckout: function () {
+                    /*   if (this.showlessons) {
+                                  this.showlessons = false
+                              } else {
+                                  this.showlessons = true
+                              } */
+                    this.showlessons = this.showlessons ? false : true;
+                },
+
+                addItemToTheCart: function (lessons) {
+                    this.cart.push(lessons.id);
+                },
+
+                removeItemFromCart: function (lessonId) {
+                    const index = this.cart.indexOf(lessonId);
+                    if (index !== -1) {
+                        this.cart.splice(index, 1);
+                    }
+                },
+
+                isItemInCart: function (lessonId) {
+                    return this.cart.includes(lessonId);
+                },
+
+                removeItemFromOrder: function (itemId) {
+                    const index = this.cart.indexOf(itemId);
+                    if (index !== -1) {
+                        this.cart.splice(index, 1);
+                    }
+                },
+
+                getLessonById: function (lessonId) {
+                    return this.lessons.find((lesson) => lesson.id === lessonId) || {};
+                },
+
+                submitCheckoutForm() {
+                    alert("Congratulations, Order Submitted :) ");
+                },
+                canAddToTheCart(lessons) {
+                    return lessons.Spaces > this.cartCount(lessons.id);
+                },
+                cartCount(id) {
+                    let count = 0;
+                    for (let i = 0; i < this.cart.length; i++) {
+                        if (this.cart[i] === id) {
+                            count++;
+                        }
+                    }
+                    return count;
+                },
+                itemsLeft(lessons) {
+                    return lessons.Spaces - this.cartCount(lessons.id);
+                },
+
+                performSearch: function () {
+                    const searchTerm = this.searchTerm.toLowerCase();
+                    this.showlessons = true;
+                    this.filteredLessons = this.lessons.filter(lesson =>
+                        lesson.Subject.toLowerCase().includes(searchTerm) ||
+                        lesson.Location.toLowerCase().includes(searchTerm) ||
+                        lesson.price.toString().includes(searchTerm)
+                    );
+                },
+                resetSearch: function () {
+                    this.searchTerm = "";
+                    this.filteredLessons = this.lessons;
+                },
+            },
+
+            computed: {
+                itemsInTheCart: function () {
+                    return this.cart.length || "";
+                },
+                sortedlessons() {
+                    // the comparison function that defines the order
+                    function compare(a, b) {
+                        if (a.price > b.price) return 1;
+                        if (a.price < b.price) return -1;
+                        return 0;
+                    }
+                    // sort the 'lessons' array and return it
+                    return this.lessons.sort(compare);
+                },
+
+                filteredLessons: function () {
+                    const searchTerm = this.searchTerm.toLowerCase();
+                    return this.lessons.filter((lesson) =>
+                        lesson.Subject.toLowerCase().includes(searchTerm)
+                    );
+                },
+            },
+        });
+    </script>
+</body>
+
 </html>

@@ -39,13 +39,11 @@ export default {
 
         "price": 100,
 
-        "image": "assets/images/bangla.png",
+        "image": "/single-file-component/CW3-single-file-component/src/assets/bangla.png",
 
         "Spaces": 5,
 
         "rating": 4
-
-        //"availableInventory": 10 and "Spaces": 10 are Same thing
     },
     {
         "id": 1002,
@@ -56,13 +54,11 @@ export default {
 
         "price": 100,
 
-        "image": "assets/images/math.png",
+        "image": "images/math.png",
 
         "Spaces": 5,
 
         "rating": 4
-
-        //"availableInventory": 10 and "Spaces": 10 are Same thing
     },
     {
         "id": 1003,
@@ -73,13 +69,11 @@ export default {
 
         "price": 110,
 
-        "image": "assets/images/math.png",
+        "image": "images/math.png",
 
         "Spaces": 5,
 
         "rating": 3
-
-        //"availableInventory": 10 and "Spaces": 10 are Same thing
     },
     {
         "id": 1004,
@@ -90,13 +84,11 @@ export default {
 
         "price": 80,
 
-        "image": "iassets/images/english.png",
+        "image": "images/english.png",
 
         "Spaces": 5,
 
         "rating": 3
-
-        //"availableInventory": 10 and "Spaces": 10 are Same thing
     },
     {
         "id": 1005,
@@ -107,13 +99,11 @@ export default {
 
         "price": 80,
 
-        "image": "iassets/images/english.png",
+        "image": "images/english.png",
 
         "Spaces": 5,
 
         "rating": 4
-
-        //"availableInventory": 10 and "Spaces": 10 are Same thing
     },
     {
         "id": 1006,
@@ -124,13 +114,11 @@ export default {
 
         "price": 80,
 
-        "image": "assets/images/french.png",
+        "image": "images/french.png",
 
         "Spaces": 5,
 
         "rating": 3
-
-        //"availableInventory": 10 and "Spaces": 10 are Same thing
     },
     {
         "id": 1007,
@@ -141,13 +129,11 @@ export default {
 
         "price": 80,
 
-        "image": "assets/images/spanish.png",
+        "image": "images/spanish.png",
 
         "Spaces": 5,
 
         "rating": 4
-
-        //"availableInventory": 10 and "Spaces": 10 are Same thing
     },
     {
         "id": 1008,
@@ -158,13 +144,11 @@ export default {
 
         "price": 80,
 
-        "image": "assets/images/spanish.png",
+        "image": "images/spanish.png",
 
         "Spaces": 5,
 
         "rating": 4
-
-        //"availableInventory": 10 and "Spaces": 10 are Same thing
     },
     {
         "id": 1009,
@@ -175,13 +159,11 @@ export default {
 
         "price": 100,
 
-        "image": "assets/images/art.png",
+        "image": "images/art.png",
 
         "Spaces": 5,
 
         "rating": 4
-
-        //"availableInventory": 10 and "Spaces": 10 are Same thing
     },
     {
         "id": 1010,
@@ -192,15 +174,13 @@ export default {
 
         "price": 100,
 
-        "image": "assets/images/yoga.png",
+        "image": "images/yoga.png",
 
         "Spaces": 5,
 
         "rating": 4
-
-        //"availableInventory": 10 and "Spaces": 10 are Same thing
     }
-      ]
+      ],
     };
   },
   methods: {

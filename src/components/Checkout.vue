@@ -68,49 +68,50 @@
   };
   </script>
   
-  <style scoped>
-  /* Styles for checkout container */
-  .checkout-container {
-    margin-top: 20px; /* Add some space between the lessons and checkout sections */
-    padding: 20px;
-    background-color: #fff; /* Set background color */
-    border-radius: 8px; /* Add rounded corners */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
-  }
-  
-  /* Styles for form elements */
-  .checkout-container form {
-    margin-bottom: 20px;
-  }
-  
-  .checkout-container input[type="text"],
-  .checkout-container input[type="tel"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    transition: border-color 0.3s ease-in-out;
-  }
-  
-  .checkout-container input[type="text"]:focus,
-  .checkout-container input[type="tel"]:focus {
-    border-color: #007bff;
-  }
-  
-  /* Styles for buttons */
-  .checkout-container button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
-  }
-  
-  .checkout-container button:hover {
-    background-color: #0056b3;
-  }
-  </style>
-  
+</script>
+
+<style scoped>
+/* Styles for checkout container */
+.checkout-container {
+  margin-top: 20px; /* Add some space between the lessons and checkout sections */
+  padding: 20px;
+  background-color: #fff; /* Set background color */
+  border-radius: 8px; /* Add rounded corners */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+}
+
+/* Styles for form elements */
+.checkout-container form {
+  margin-bottom: 20px;
+}
+
+.checkout-container input[type="text"],
+.checkout-container input[type="tel"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.checkout-container input[type="text"]:focus,
+.checkout-container input[type="tel"]:focus {
+  border-color: #007bff;
+}
+
+/* Styles for buttons */
+.checkout-container button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.checkout-container button:hover {
+  background-color: #0056b3;
+}
+</style>
